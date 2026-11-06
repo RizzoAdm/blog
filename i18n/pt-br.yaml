@@ -1,0 +1,34 @@
+# Textos da interface em PT-BR (o pt.yaml do tema não é usado para "pt-br")
+- id: prev_page
+  translation: "Anterior"
+
+- id: next_page
+  translation: "Próxima"
+
+- id: read_time
+  translation:
+    one: "1 min de leitura"
+    other: "{{ .Count }} min de leitura"
+
+- id: words
+  translation:
+    one: "1 palavra"
+    other: "{{ .Count }} palavras"
+
+- id: toc
+  translation: "Sumário"
+
+- id: translations
+  translation: "Leia em"
+
+- id: home
+  translation: "Início"
+
+- id: edit_post
+  translation: "Editar"
+
+- id: code_copy
+  translation: "copiar"
+
+- id: code_copied
+  translation: "copiado!"

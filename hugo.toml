@@ -5,6 +5,8 @@ theme = 'PaperMod'
 defaultContentLanguage = 'en'
 defaultContentLanguageInSubdir = false
 enableRobotsTXT = true
+# Slugs gerados a partir do título sem acentos (ex.: "Olá, mundo" -> ola-mundo)
+removePathAccents = true
 
 [pagination]
   pagerSize = 10
@@ -12,7 +14,12 @@ enableRobotsTXT = true
 [outputs]
   home = ['HTML', 'RSS', 'JSON']
 
+# Só tags (sem categories)
+[taxonomies]
+  tag = 'tags'
+
 [languages]
+  # ---------- English (default, sem prefixo: /blog/) ----------
   [languages.en]
     label = 'English'
     locale = 'en-US'
@@ -20,6 +27,9 @@ enableRobotsTXT = true
     title = 'Mr. Rizzo · Blog'
     [languages.en.params]
       description = 'Notes on homelab, local AI, git, ServiceNow and everyday things.'
+      [languages.en.params.homeInfoParams]
+        Title = 'Mr. Rizzo · Blog'
+        Content = 'Hands-on notes on homelab, local AI, git and ServiceNow — plus the occasional everyday topic. Posts in English and Portuguese.'
     [[languages.en.menus.main]]
       name = 'Posts'
       pageRef = '/posts'
@@ -41,6 +51,7 @@ enableRobotsTXT = true
       url = 'https://rizzoadm.github.io/'
       weight = 50
 
+  # ---------- Português (prefixo /blog/pt-br/) ----------
   [languages.pt-br]
     label = 'Português'
     locale = 'pt-BR'
@@ -48,12 +59,25 @@ enableRobotsTXT = true
     title = 'Mr. Rizzo · Blog'
     [languages.pt-br.params]
       description = 'Notas sobre homelab, IA local, git, ServiceNow e coisas do dia a dia.'
+      [languages.pt-br.params.homeInfoParams]
+        Title = 'Mr. Rizzo · Blog'
+        Content = 'Notas práticas sobre homelab, IA local, git e ServiceNow — e, de vez em quando, coisas do dia a dia. Posts em português e inglês.'
+    # URLs em português (o menu usa pageRef, então continua funcionando)
+    [languages.pt-br.permalinks]
+      [languages.pt-br.permalinks.page]
+        posts = '/artigos/:slugorcontentbasename/'
+      [languages.pt-br.permalinks.section]
+        posts = '/artigos/'
+      [languages.pt-br.permalinks.taxonomy]
+        tags = '/etiquetas/'
+      [languages.pt-br.permalinks.term]
+        tags = '/etiquetas/:slug/'
     [[languages.pt-br.menus.main]]
-      name = 'Posts'
+      name = 'Artigos'
       pageRef = '/posts'
       weight = 10
     [[languages.pt-br.menus.main]]
-      name = 'Tags'
+      name = 'Etiquetas'
       pageRef = '/tags'
       weight = 20
     [[languages.pt-br.menus.main]]
@@ -74,18 +98,15 @@ enableRobotsTXT = true
   author = 'Mr. Rizzo'
   defaultTheme = 'auto'
   disableThemeToggle = false
+  disableLangToggle = false
+  displayFullLangName = true
   ShowReadingTime = true
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
   ShowToc = false
   ShowShareButtons = false
-  displayFullLangName = true
   comments = false
-
-  [params.homeInfoParams]
-    Title = 'Mr. Rizzo · Blog'
-    Content = 'Notes on homelab, local AI, git and ServiceNow.'
 
   [[params.socialIcons]]
     name = 'github'

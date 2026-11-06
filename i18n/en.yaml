@@ -1,0 +1,8 @@
+# Overrides of the theme's English strings (other ids come from the theme)
+- id: read_time
+  translation:
+    one: "1 min read"
+    other: "{{ .Count }} min read"
+
+- id: translations
+  translation: "Read in"
