@@ -5,7 +5,7 @@ translationKey: "hello-world"
 date: 2026-11-05
 tags: ["meta"]
 summary: "Primeiro post de teste — conferindo layout, fontes e cores."
-draft: false
+draft: true
 ---
 
 Este é um post de teste para conferir o layout. Ele fica como **rascunho** e não é publicado.

@@ -4,7 +4,7 @@ translationKey: "hello-world"
 date: 2026-11-05
 tags: ["meta"]
 summary: "First test post — checking layout, fonts and colors."
-draft: fasle
+draft: true
 ---
 
 This is a test post to check the layout. It stays as a **draft** and is not published.
