@@ -11,7 +11,7 @@ Personal blog of Mr. Rizzo — technical notes (homelab, local AI, git, ServiceN
 - [Hugo](https://gohugo.io/) (extended) — static site generator
 - Theme: [PaperMod](https://github.com/adityatelange/hugo-PaperMod) (git submodule in `themes/PaperMod`)
 - Comments: [giscus](https://giscus.app/) (GitHub Discussions)
-- Browser editor: [Pages CMS](https://pagescms.org/) — stage B6
+- Browser editor: [Pages CMS](https://pagescms.org/) (`.pages.yml`)
 - Hosting: GitHub Pages via GitHub Actions
 
 ## Design
@@ -61,14 +61,14 @@ content/posts/my-post/
 └── index.pt-br.md   # Portuguese — add slug: "titulo-em-portugues"
 ```
 
-A post can exist in one language only. If the two files ever live in different folders, give both the same `translationKey`.
+Both files also carry `translationKey: "<folder>"` (the Pages CMS editor writes it and uses it to name the folder). A post can exist in one language only.
 
 ## Comments
 
 Comments use [giscus](https://giscus.app/): each post is linked to a GitHub Discussion in the **Comments** category (Announcement format — only the maintainer and the giscus app open discussions; anyone with a GitHub account can comment and react).
 
 - Shown on posts only (`posts` section). Add `comments: false` to a post's front matter to turn them off for that post
-- One discussion per post, shared by both languages: the key is `posts/<folder>` (giscus `specific` mapping, strict matching), so the English and Portuguese versions show the same comments and changing a slug or URL keeps them. If the two versions ever live in different folders, give both the same `translationKey`
+- One discussion per post, shared by both languages: the key is `posts/<translationKey>` — the folder name when `translationKey` is absent (giscus `specific` mapping, strict matching), so the English and Portuguese versions show the same comments and changing a slug or URL keeps them. `commentsTerm` in the front matter overrides the key
 - The widget interface follows the page language (`en` / `pt`)
 - Reactions enabled; the widget loads lazily when the reader scrolls near it
 - The widget theme follows the blog's day/night toggle. Production builds use custom themes with the blog colors; `hugo server` falls back to giscus' built-in `light`/`dark`, because giscus cannot fetch CSS from `localhost`
@@ -78,6 +78,21 @@ Comments use [giscus](https://giscus.app/): each post is linked to a GitHub Disc
 | `layouts/_partials/comments.html` | giscus widget (override of the theme's empty partial) |
 | `static/giscus/light.css`, `static/giscus/dark.css` | Custom widget themes (blog colors + Literata) |
 | `hugo.toml` → `[params.giscus]` | Repository, category and their IDs (from giscus.app). The widget is hidden while an ID is empty |
+
+## Browser editor (Pages CMS)
+
+Posts can be written and edited at https://app.pagescms.org (sign in with GitHub; the Pages CMS GitHub App is installed on this repository only). Configuration: `.pages.yml` at the repository root.
+
+| Menu | Files | Notes |
+|---|---|---|
+| **Posts (English)** | `content/posts/<key>/index.md` | `key` = `translationKey` = folder name and English URL |
+| **Artigos (Português)** | `content/posts/<key>/index.pt-br.md` | Same `key` as the English version; `slug` sets the Portuguese URL |
+
+- Fields: title, key, date, draft, tags, summary, comments, body (visual editor with a Markdown source toggle). PT also has `slug`
+- New posts start as drafts (`draft: true`); unticking *Draft* and saving publishes on the next deploy
+- Every save is a commit to `main`, which triggers the deploy workflow. Run `git pull` before editing locally
+- Images uploaded through the editor go to `static/images/` and are linked as `/blog/images/<file>`. Strip EXIF/GPS metadata before uploading
+- Unknown front-matter keys are kept on save (`settings.content.merge: true`); key and folder cannot be renamed from the editor
 
 ## Local preview
 
@@ -110,4 +125,5 @@ hugo server -D
 - **B3** — Languages, menus, PT-BR interface and localized URLs: **done**
 - **B4** — giscus comments (shared EN/PT thread, day/night themes): **done**
 - B5 — Newsletter: **cancelled** (readers can follow via RSS: `/blog/index.xml` and `/blog/pt-br/index.xml`)
-- B6 — Pages CMS · B7 — link from the portfolio menu · B8 — final review
+- **B6** — Pages CMS browser editor (separate EN/PT lists, shared folder per post): **done**
+- B7 — link from the portfolio menu · B8 — final review

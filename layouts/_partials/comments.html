@@ -15,7 +15,10 @@
 */ -}}
 {{- $g := site.Params.giscus }}
 {{- if and $g $g.repo_id $g.category_id .IsPage (eq .Section "posts") }}
-{{- $term := or .Params.commentsterm .Params.translationkey (printf "%s/%s" .Section .File.ContentBaseName) }}
+{{- /* B6: o Pages CMS grava translationKey = nome da pasta, então a chave
+     continua "posts/<pasta>" com ou sem translationKey no front matter. */ -}}
+{{- $key := or .Params.translationkey .File.ContentBaseName }}
+{{- $term := or .Params.commentsterm (printf "%s/%s" .Section $key) }}
 {{- $lang := cond (hasPrefix .Lang "pt") "pt" "en" }}
 {{- $light := "light" }}
 {{- $dark := "dark" }}

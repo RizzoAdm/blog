@@ -1,5 +1,6 @@
 ---
 title: "Hello, world"
+translationKey: "hello-world"
 date: 2026-11-05
 tags: ["meta"]
 summary: "First test post — checking layout, fonts and colors."
