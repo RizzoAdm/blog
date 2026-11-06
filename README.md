@@ -17,9 +17,23 @@ Personal blog of Mr. Rizzo — technical notes (homelab, local AI, git, ServiceN
 
 ## Design
 
-- Day: cream background `#fbf9f4`, white cards, ink-blue accent `#1f3a68`
-- Night: near-black background `#121312`, cards `#1e201e`, soft-cyan accent `#7cc4c0`
-- Body and titles in [Literata](https://fonts.google.com/specimen/Literata) (serif)
+| | Background | Cards | Borders | Accent |
+|---|---|---|---|---|
+| Day | `#fbf9f4` | `#ffffff` | `#e2ddd3` | ink blue `#1f3a68` |
+| Night | `#121312` | `#1e201e` | `#30332f` | soft cyan `#7cc4c0` |
+
+- Body and titles in [Literata](https://fonts.google.com/specimen/Literata) (variable serif), self-hosted in `static/fonts/literata/` — no requests to Google Fonts
+- Code and tags in the system monospace font
+- Reading column ~700 px; code blocks stay dark in both modes (syntax colors are designed for a dark background)
+- Day/night follows the visitor's system setting, with a toggle in the header
+
+### Where the design lives
+
+| File | Purpose |
+|---|---|
+| `assets/css/extended/blog.css` | Color variables, typography, cards, tags, links. PaperMod loads it after the theme CSS, so it overrides without editing the theme |
+| `layouts/_partials/extend_head.html` | `@font-face` for Literata and font preload |
+| `static/fonts/literata/` | Literata `.woff2` files (Latin subset, weights 200–900, normal and italic) |
 
 ## Local preview
 
@@ -48,5 +62,6 @@ hugo server -D
 ## Status
 
 - **B1** — Hugo + PaperMod, EN/PT-BR, GitHub Pages via Actions: **done**
-- **B2** — Day/night colors and Literata font: next
-- B3 — Languages and menus · B4 — giscus · B5 — Buttondown · B6 — Pages CMS · B7 — link from the portfolio menu · B8 — final review
+- **B2** — Day/night colors and self-hosted Literata font: **done**
+- **B3** — Languages and menus: next
+- B4 — giscus · B5 — Buttondown · B6 — Pages CMS · B7 — link from the portfolio menu · B8 — final review
