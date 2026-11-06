@@ -129,3 +129,30 @@ Se você só escreve pelo CMS, não precisa fazer nada no computador.
 | Não consigo salvar | Campo obrigatório vazio ou com formato inválido | Leia a mensagem em vermelho embaixo do campo |
 | `git pull` dá conflito no computador | Arquivo editado no CMS e no VS Code ao mesmo tempo | Não edite o mesmo post nos dois lugares; peça ajuda para resolver o conflito |
 | As listas sumiram do menu do CMS | `.pages.yml` com erro | Desfaça a última mudança no `.pages.yml` |
+
+## 12. Rotina de posts
+
+Vale para o CMS e para o computador. Faça um idioma de cada vez se preferir.
+
+1. **Escrever**
+   - **Pelo navegador:** Pages CMS → *Posts (English)* e/ou *Artigos (Português)* → **Add an entry**, com **Draft** marcado (seção 5).
+   - **Pelo computador** (Terminal do Ubuntu):
+     ```bash
+     cd ~/Projects/blog
+     git pull
+     hugo new content --kind bilingual posts/<chave>
+     ```
+     Cria `content/posts/<chave>/index.md` (EN) e `index.pt-br.md` (PT), os dois como rascunho e com a mesma chave. Abra a pasta no VS Code, ajuste **title** e **slug** da versão PT e escreva. Se o post for de um idioma só, apague o arquivo do outro.
+2. **Fotos:** limpe EXIF/GPS antes de enviar (seção 8).
+3. **Revisar:** mesma chave e mesmas tags nas duas versões; slug PT sem acento; resumo de 1–2 frases.
+   - No computador, veja a prévia com `hugo server -D` (Terminal, na pasta `~/Projects/blog`) e abra http://localhost:1313/blog/. **Ctrl + C** para parar.
+4. **Publicar**
+   - **CMS:** desmarque **Draft / Rascunho** → **Save**.
+   - **Computador:** troque `draft: true` por `draft: false` nos dois arquivos e, no Terminal:
+     ```bash
+     git add content/posts/<chave>
+     git commit -m "Post: <chave>"
+     git push
+     ```
+5. **Conferir** (1–2 minutos depois): abra o post no blog nos dois idiomas, troque dia/noite e veja se os comentários aparecem. Se não aparecer, olhe GitHub → `RizzoAdm/blog` → **Actions**.
+

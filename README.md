@@ -93,6 +93,30 @@ Posts can be written and edited at https://app.pagescms.org (sign in with GitHub
 - Every save is a commit to `main`, which triggers the deploy workflow. Run `git pull` before editing locally
 - Images uploaded through the editor go to `static/images/` and are linked as `/blog/images/<file>`. Strip EXIF/GPS metadata before uploading
 - Unknown front-matter keys are kept on save (`settings.content.merge: true`); key and folder cannot be renamed from the editor
+- Step-by-step guide in Portuguese: [`MANUAL-CMS.md`](MANUAL-CMS.md)
+
+## New post from the terminal
+
+The `bilingual` archetype creates both language versions in one folder, with the same `translationKey` and the same front-matter fields as the Pages CMS:
+
+```bash
+git pull
+hugo new content --kind bilingual posts/<key>
+```
+
+- `<key>`: lowercase letters, numbers and hyphens (e.g. `homelab-vlans`) — folder name, English URL and comments key
+- Creates `content/posts/<key>/index.md` and `index.pt-br.md`, both with `draft: true`. Set the Portuguese `title` and `slug`, write, preview with `hugo server -D`, then set `draft: false` and push
+- For a single-language post, delete the file you don't need
+
+## Writing routine
+
+1. **Write** — in the Pages CMS (browser) or in VS Code (`git pull` first, then the archetype above). Keep *Draft* on
+2. **Images** — strip EXIF/GPS (`exiftool -all= -overwrite_original <file>`) before uploading; prefer JPG/WebP up to ~1600 px
+3. **Review** — same key, tags and summary in both languages; PT `slug` without accents
+4. **Publish** — untick *Draft* / set `draft: false` and save or push; the deploy takes 1–2 minutes (GitHub → Actions)
+5. **Check** — open the post on the live blog in both languages, switch day/night, and check the comments widget
+
+Full routine in Portuguese: [`MANUAL-CMS.md`](MANUAL-CMS.md), section 12.
 
 ## Local preview
 
@@ -126,4 +150,10 @@ hugo server -D
 - **B4** — giscus comments (shared EN/PT thread, day/night themes): **done**
 - B5 — Newsletter: **cancelled** (readers can follow via RSS: `/blog/index.xml` and `/blog/pt-br/index.xml`)
 - **B6** — Pages CMS browser editor (separate EN/PT lists, shared folder per post): **done**
-- B7 — link from the portfolio menu · B8 — final review
+- **B7** — "Blog" link in the portfolio menu (same tab): **done**
+- **B8** — Final review (Portuguese menu links fixed), `bilingual` archetype, writing routine, README: **done**
+
+## Notes
+
+- The footer credit "Powered by Hugo & PaperMod" comes from the theme and stays in English on both languages (by choice)
+- **Moving to a custom domain** (e.g. `blog.example.com` at the root): change `baseURL` in `hugo.toml`; change `media.output` in `.pages.yml` from `/blog/images` to `/images`; replace `/blog/images/` with `/images/` in existing posts; update the "Blog" link in the portfolio menu; RSS readers need the new feed URL. Comments are not affected (keys don't depend on the URL)
