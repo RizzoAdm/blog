@@ -1,0 +1,178 @@
+/* =========================================================
+   Blog Mr. Rizzo — etapa B2: visual de leitura
+   PaperMod junta este arquivo DEPOIS do CSS do tema,
+   então as regras aqui substituem as do tema.
+   ========================================================= */
+
+/* ---------- Esquema DIA ---------- */
+:root {
+    --theme: #fbf9f4;          /* fundo creme */
+    --entry: #ffffff;          /* cartões */
+    --border: #e2ddd3;         /* bordas */
+    --tertiary: #e2ddd3;
+    --accent: #1f3a68;         /* azul-tinta */
+
+    --primary: #1d1c1a;        /* títulos */
+    --content: #2b2a27;        /* texto corrido */
+    --secondary: #6b675e;      /* datas, resumos */
+
+    --code-bg: #f1ede4;        /* `código inline` */
+    --code-block-bg: #1e201e;  /* blocos de código (tema de cores escuro) */
+
+    --font-serif: 'Literata', Georgia, 'Times New Roman', serif;
+    --font-mono: ui-monospace, 'Ubuntu Mono', SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+
+    --main-width: 700px;       /* coluna de leitura (~70 caracteres) */
+}
+
+/* ---------- Esquema NOITE ---------- */
+:root[data-theme="dark"] {
+    --theme: #121312;
+    --entry: #1e201e;
+    --border: #30332f;
+    --tertiary: #30332f;
+    --accent: #7cc4c0;         /* ciano suave */
+
+    --primary: #e8e6df;
+    --content: #d2d0c8;
+    --secondary: #9a978d;
+
+    --code-bg: #262926;
+    --code-block-bg: #171817;
+}
+
+/* Listas (home, tags, arquivo) com o mesmo fundo creme, sem o cinza do tema */
+.list,
+[data-theme="dark"] .list {
+    background: var(--theme);
+}
+
+/* ---------- Tipografia ---------- */
+body {
+    font-family: var(--font-serif);
+    font-size: 19px;
+    line-height: 1.7;
+    color: var(--content);
+    font-optical-sizing: auto;
+}
+
+h1, h2, h3, h4, h5, h6,
+.post-title,
+.entry-header h2 {
+    font-family: var(--font-serif);
+    font-weight: 650;
+    letter-spacing: -0.01em;
+}
+
+.post-content {
+    color: var(--content);
+}
+
+/* Mono: código, tags e termos */
+code, pre, kbd, samp,
+.post-tags a,
+.terms-tags a {
+    font-family: var(--font-mono);
+}
+
+.post-content code {
+    font-size: 0.85em;
+}
+
+.post-tags a,
+.terms-tags a {
+    font-size: 14px;
+}
+
+/* ---------- Destaque (azul-tinta / ciano) ---------- */
+.md-content a:not(.anchor) {
+    color: var(--accent);
+    text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+    text-decoration-thickness: 1px;
+}
+
+.md-content a:not(.anchor):hover {
+    text-decoration-color: var(--accent);
+}
+
+.logo a,
+.menu a:hover,
+.menu .active,
+.breadcrumbs a:hover,
+.post-entry:hover .entry-header h2 {
+    color: var(--accent);
+}
+
+.menu .active {
+    border-bottom-color: var(--accent);
+}
+
+::selection {
+    background: color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+.md-content blockquote {
+    border-inline-start-color: var(--accent);
+    color: var(--secondary);
+}
+
+/* ---------- Cartões de post ---------- */
+.post-entry {
+    background: var(--entry);
+    border: 1px solid var(--border);
+    box-shadow: none;
+}
+
+.post-entry:hover,
+.post-entry:focus-within {
+    border-color: var(--accent);
+}
+
+.entry-content {
+    font-size: 16px;
+    color: var(--secondary);
+}
+
+/* ---------- Tags ---------- */
+.post-tags a,
+.terms-tags a {
+    background: var(--entry);
+    border: 1px solid var(--border);
+    color: var(--secondary);
+}
+
+.post-tags a:hover,
+.terms-tags a:hover {
+    background: var(--entry);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* Botões de paginação e navegação entre posts */
+.paginav {
+    background: var(--entry);
+    border: 1px solid var(--border);
+}
+
+.paginav a:hover {
+    background: transparent;
+    color: var(--accent);
+}
+
+/* ---------- Blocos de código ---------- */
+.md-content pre code,
+.md-content .highlight:not(table) {
+    border: 1px solid var(--border);
+}
+
+[data-theme="dark"] .md-content pre code,
+[data-theme="dark"] .md-content .highlight:not(table) {
+    border-color: var(--border);
+}
+
+/* ---------- Celular ---------- */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 18px;
+    }
+}

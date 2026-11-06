@@ -1,0 +1,22 @@
+{{- /*
+  Blog — etapa B2: fonte Literata hospedada no próprio repositório.
+  Arquivos em static/fonts/literata/ (variable font, peso 200–900).
+  relURL mantém o caminho correto com o subcaminho /blog/.
+*/ -}}
+<link rel="preload" href="{{ "fonts/literata/literata-latin-wght-normal.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face {
+    font-family: 'Literata';
+    font-style: normal;
+    font-weight: 200 900;
+    font-display: swap;
+    src: url('{{ "fonts/literata/literata-latin-wght-normal.woff2" | relURL }}') format('woff2');
+  }
+  @font-face {
+    font-family: 'Literata';
+    font-style: italic;
+    font-weight: 200 900;
+    font-display: swap;
+    src: url('{{ "fonts/literata/literata-latin-wght-italic.woff2" | relURL }}') format('woff2');
+  }
+</style>
