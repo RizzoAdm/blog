@@ -1,0 +1,10 @@
+# Hugo build output
+/public/
+/resources/_gen/
+/assets/jsconfig.json
+.hugo_build.lock
+
+# Editor / OS
+.vscode/
+*.swp
+.DS_Store
