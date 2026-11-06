@@ -3,9 +3,9 @@ title: Bem-vindo ao blog
 slug: boas-vindas
 translationKey: welcome
 date: 2026-11-06
-draft: true
+draft: false
 tags:
-  - about
+  - "about, "
 summary: Quem sou eu, por que este blog existe, sobre o que vou escrever e como
   acompanhar.
 comments: true
@@ -23,9 +23,7 @@ Aqui a proposta é diferente: quero colocar conteúdo mais simples, com testes, 
 Os principais temas provavelmente vão girar em torno de:
 
 - homelab;
-
 - inteligência artificial, local e em nuvem;
-
 - Linux, git, GitHub e Python;
 
 entre outros assuntos do meu interesse.
@@ -41,13 +39,9 @@ O ritmo de postagem não vai seguir uma promessa rígida. Não quero que o blog 
 RSS é uma forma de "assinar" um site sem precisar de e-mail nem de cadastro aqui. Você usa um aplicativo leitor de RSS, que confere os sites que você segue e mostra os posts novos em um só lugar.
 
 1. Escolha um leitor de RSS. Alguns gratuitos: **Feedly** e **Inoreader** (navegador e celular), **NetNewsWire** (Mac e iPhone) e **Thunderbird** (computador).
-
 2. Copie o endereço do blog:
-
-   - em português: `https://rizzoadm.github.io/blog/pt-br/index.xml`
-
-   - em inglês: `https://rizzoadm.github.io/blog/index.xml`
-
+  - em português: `https://rizzoadm.github.io/blog/pt-br/index.xml`
+  - em inglês: `https://rizzoadm.github.io/blog/index.xml`
 3. No leitor, procure a opção de adicionar um site ou feed (geralmente "Add feed", "Follow" ou um botão "+") e cole o endereço.
 
 Pronto: sempre que sair um post novo, ele aparece no seu leitor.
