@@ -11,7 +11,6 @@ Personal blog of Mr. Rizzo — technical notes (homelab, local AI, git, ServiceN
 - [Hugo](https://gohugo.io/) (extended) — static site generator
 - Theme: [PaperMod](https://github.com/adityatelange/hugo-PaperMod) (git submodule in `themes/PaperMod`)
 - Comments: [giscus](https://giscus.app/) (GitHub Discussions)
-- Newsletter: [Buttondown](https://buttondown.com/) (RSS-to-email) — stage B5
 - Browser editor: [Pages CMS](https://pagescms.org/) — stage B6
 - Hosting: GitHub Pages via GitHub Actions
 
@@ -110,4 +109,5 @@ hugo server -D
 - **B2** — Day/night colors and self-hosted Literata font: **done**
 - **B3** — Languages, menus, PT-BR interface and localized URLs: **done**
 - **B4** — giscus comments (shared EN/PT thread, day/night themes): **done**
-- B5 — Buttondown · B6 — Pages CMS · B7 — link from the portfolio menu · B8 — final review
+- B5 — Newsletter: **cancelled** (readers can follow via RSS: `/blog/index.xml` and `/blog/pt-br/index.xml`)
+- B6 — Pages CMS · B7 — link from the portfolio menu · B8 — final review
