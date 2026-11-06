@@ -1,0 +1,60 @@
+/* =========================================================
+   giscus — tema DIA do blog Mr. Rizzo (etapa B4)
+   Parte do tema "light" do giscus e troca só as cores
+   (creme + azul-tinta #1f3a68) e a fonte (Literata).
+   Publicado em https://rizzoadm.github.io/blog/giscus/light.css
+   ========================================================= */
+@import url("https://giscus.app/themes/light.css");
+
+@font-face {
+  font-family: 'Literata';
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url('https://rizzoadm.github.io/blog/fonts/literata/literata-latin-wght-normal.woff2') format('woff2');
+}
+
+main {
+  --color-canvas-default: #ffffff;
+  --color-canvas-overlay: #ffffff;
+  --color-canvas-inset: #f1ede4;
+  --color-canvas-subtle: #f6f3ec;
+
+  --color-fg-default: #2b2a27;
+  --color-fg-muted: #6b675e;
+  --color-fg-subtle: #8a867c;
+
+  --color-border-default: #e2ddd3;
+  --color-border-muted: #ebe7de;
+  --color-neutral-muted: rgba(226, 221, 211, 0.5);
+
+  --color-accent-fg: #1f3a68;
+  --color-accent-emphasis: #1f3a68;
+  --color-accent-muted: rgba(31, 58, 104, 0.4);
+  --color-accent-subtle: rgba(31, 58, 104, 0.08);
+  --color-primer-border-active: #1f3a68;
+
+  --color-btn-text: #2b2a27;
+  --color-btn-bg: #ffffff;
+  --color-btn-border: #e2ddd3;
+  --color-btn-hover-bg: #f6f3ec;
+  --color-btn-hover-border: #d5cfc2;
+  --color-btn-active-bg: #ebe7de;
+  --color-btn-selected-bg: #f1ede4;
+
+  --color-btn-primary-text: #ffffff;
+  --color-btn-primary-bg: #1f3a68;
+  --color-btn-primary-border: rgba(0, 0, 0, 0.1);
+  --color-btn-primary-hover-bg: #2a4a80;
+  --color-btn-primary-selected-bg: #18305a;
+  --color-btn-primary-disabled-text: rgba(255, 255, 255, 0.8);
+  --color-btn-primary-disabled-bg: #8f9db6;
+
+  --color-segmented-control-bg: #ebe7de;
+  --color-segmented-control-button-bg: #ffffff;
+
+  --color-social-reaction-bg-hover: #f1ede4;
+  --color-social-reaction-bg-reacted-hover: rgba(31, 58, 104, 0.15);
+
+  font-family: 'Literata', Georgia, 'Times New Roman', serif;
+}

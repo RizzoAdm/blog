@@ -1,0 +1,80 @@
+{{- /*
+  Blog — etapa B4: comentários com giscus (GitHub Discussions).
+  Substitui o comments.html vazio do PaperMod. O single.html do tema só chama
+  este partial quando params.comments = true (no site ou no front matter).
+
+  - Só em posts (seção "posts"). "comments: false" no front matter desliga.
+  - Uma discussão por post: EN e PT usam a mesma chave (mapping "specific"),
+    formada por <seção>/<pasta do post>, ex.: "posts/hello-world".
+    Se as duas versões ficarem em pastas diferentes, dê a ambas o mesmo
+    "translationKey" (ou "commentsTerm") no front matter.
+  - Idioma do widget conforme a página (en / pt).
+  - Tema acompanha o dia/noite do blog. No build de produção (GitHub Actions)
+    usa static/giscus/light.css e dark.css; no "hugo server" usa os temas
+    prontos light/dark, porque o giscus não consegue ler arquivos do localhost.
+*/ -}}
+{{- $g := site.Params.giscus }}
+{{- if and $g $g.repo_id $g.category_id .IsPage (eq .Section "posts") }}
+{{- $term := or .Params.commentsterm .Params.translationkey (printf "%s/%s" .Section .File.ContentBaseName) }}
+{{- $lang := cond (hasPrefix .Lang "pt") "pt" "en" }}
+{{- $light := "light" }}
+{{- $dark := "dark" }}
+{{- if hugo.IsProduction }}
+  {{- $light = "giscus/light.css" | absURL }}
+  {{- $dark = "giscus/dark.css" | absURL }}
+{{- end }}
+<section class="post-comments" id="comments">
+  <div class="giscus"></div>
+</section>
+<script>
+(function () {
+  var html = document.documentElement;
+  var themes = { light: {{ $light }}, dark: {{ $dark }} };
+  function currentTheme() {
+    return html.dataset.theme === 'dark' ? themes.dark : themes.light;
+  }
+
+  // Cria o script do giscus já com o tema certo (dia ou noite) da página
+  var s = document.createElement('script');
+  var attrs = {
+    'src': 'https://giscus.app/client.js',
+    'data-repo': {{ $g.repo }},
+    'data-repo-id': {{ $g.repo_id }},
+    'data-category': {{ $g.category }},
+    'data-category-id': {{ $g.category_id }},
+    'data-mapping': 'specific',
+    'data-term': {{ $term }},
+    'data-strict': '1',
+    'data-reactions-enabled': '1',
+    'data-emit-metadata': '0',
+    'data-input-position': 'bottom',
+    'data-theme': currentTheme(),
+    'data-lang': {{ $lang }},
+    'data-loading': 'lazy',
+    'crossorigin': 'anonymous'
+  };
+  for (var k in attrs) { s.setAttribute(k, attrs[k]); }
+  s.async = true;
+  document.querySelector('#comments').appendChild(s);
+
+  // Troca o tema do widget quando o visitante clica no botão dia/noite
+  var ready = false;
+  function sendTheme() {
+    var frame = document.querySelector('iframe.giscus-frame');
+    if (!frame || !frame.contentWindow) { return; }
+    frame.contentWindow.postMessage(
+      { giscus: { setConfig: { theme: currentTheme() } } },
+      'https://giscus.app'
+    );
+  }
+  // A primeira mensagem do giscus avisa que o widget carregou
+  window.addEventListener('message', function (e) {
+    if (e.origin !== 'https://giscus.app' || ready) { return; }
+    ready = true;
+    sendTheme();
+  });
+  new MutationObserver(function () { if (ready) { sendTheme(); } })
+    .observe(html, { attributes: true, attributeFilter: ['data-theme'] });
+})();
+</script>
+{{- end }}

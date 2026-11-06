@@ -1,0 +1,60 @@
+/* =========================================================
+   giscus — tema NOITE do blog Mr. Rizzo (etapa B4)
+   Parte do tema "dark" do giscus e troca só as cores
+   (fundo #121312 + ciano suave #7cc4c0) e a fonte (Literata).
+   Publicado em https://rizzoadm.github.io/blog/giscus/dark.css
+   ========================================================= */
+@import url("https://giscus.app/themes/dark.css");
+
+@font-face {
+  font-family: 'Literata';
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url('https://rizzoadm.github.io/blog/fonts/literata/literata-latin-wght-normal.woff2') format('woff2');
+}
+
+main {
+  --color-canvas-default: #1e201e;
+  --color-canvas-overlay: #1e201e;
+  --color-canvas-inset: #171817;
+  --color-canvas-subtle: #232623;
+
+  --color-fg-default: #d2d0c8;
+  --color-fg-muted: #9a978d;
+  --color-fg-subtle: #7d7a72;
+
+  --color-border-default: #30332f;
+  --color-border-muted: #2a2d29;
+  --color-neutral-muted: rgba(48, 51, 47, 0.6);
+
+  --color-accent-fg: #7cc4c0;
+  --color-accent-emphasis: #7cc4c0;
+  --color-accent-muted: rgba(124, 196, 192, 0.4);
+  --color-accent-subtle: rgba(124, 196, 192, 0.1);
+  --color-primer-border-active: #7cc4c0;
+
+  --color-btn-text: #d2d0c8;
+  --color-btn-bg: #262926;
+  --color-btn-border: #30332f;
+  --color-btn-hover-bg: #2d302c;
+  --color-btn-hover-border: #3c403b;
+  --color-btn-active-bg: #30332f;
+  --color-btn-selected-bg: #262926;
+
+  --color-btn-primary-text: #121312;
+  --color-btn-primary-bg: #7cc4c0;
+  --color-btn-primary-border: rgba(0, 0, 0, 0.1);
+  --color-btn-primary-hover-bg: #93d0cc;
+  --color-btn-primary-selected-bg: #68b3af;
+  --color-btn-primary-disabled-text: rgba(18, 19, 18, 0.6);
+  --color-btn-primary-disabled-bg: #4f7a77;
+
+  --color-segmented-control-bg: #262926;
+  --color-segmented-control-button-bg: #1e201e;
+
+  --color-social-reaction-bg-hover: #262926;
+  --color-social-reaction-bg-reacted-hover: rgba(124, 196, 192, 0.18);
+
+  font-family: 'Literata', Georgia, 'Times New Roman', serif;
+}

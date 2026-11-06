@@ -106,7 +106,17 @@ removePathAccents = true
   ShowCodeCopyButtons = true
   ShowToc = false
   ShowShareButtons = false
-  comments = false
+  # Comentários (B4): o partial só mostra o widget em posts;
+  # "comments: false" no front matter desliga em um post específico.
+  comments = true
+
+  # giscus (GitHub Discussions). IDs copiados de https://giscus.app
+  # Enquanto repo_id ou category_id estiverem vazios, o widget não aparece.
+  [params.giscus]
+    repo = 'RizzoAdm/blog'
+    repo_id = 'R_kgDOVkuicQ'
+    category = 'Comments'
+    category_id = 'DIC_kwDOVkuicc4DKi6N'
 
   [[params.socialIcons]]
     name = 'github'

@@ -170,6 +170,13 @@ code, pre, kbd, samp,
     border-color: var(--border);
 }
 
+/* ---------- Comentários (giscus, etapa B4) ---------- */
+.post-comments {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+}
+
 /* ---------- Celular ---------- */
 @media screen and (max-width: 768px) {
     body {

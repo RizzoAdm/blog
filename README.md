@@ -10,7 +10,7 @@ Personal blog of Mr. Rizzo — technical notes (homelab, local AI, git, ServiceN
 
 - [Hugo](https://gohugo.io/) (extended) — static site generator
 - Theme: [PaperMod](https://github.com/adityatelange/hugo-PaperMod) (git submodule in `themes/PaperMod`)
-- Comments: [giscus](https://giscus.app/) (GitHub Discussions) — stage B4
+- Comments: [giscus](https://giscus.app/) (GitHub Discussions)
 - Newsletter: [Buttondown](https://buttondown.com/) (RSS-to-email) — stage B5
 - Browser editor: [Pages CMS](https://pagescms.org/) — stage B6
 - Hosting: GitHub Pages via GitHub Actions
@@ -64,6 +64,22 @@ content/posts/my-post/
 
 A post can exist in one language only. If the two files ever live in different folders, give both the same `translationKey`.
 
+## Comments
+
+Comments use [giscus](https://giscus.app/): each post is linked to a GitHub Discussion in the **Comments** category (Announcement format — only the maintainer and the giscus app open discussions; anyone with a GitHub account can comment and react).
+
+- Shown on posts only (`posts` section). Add `comments: false` to a post's front matter to turn them off for that post
+- One discussion per post, shared by both languages: the key is `posts/<folder>` (giscus `specific` mapping, strict matching), so the English and Portuguese versions show the same comments and changing a slug or URL keeps them. If the two versions ever live in different folders, give both the same `translationKey`
+- The widget interface follows the page language (`en` / `pt`)
+- Reactions enabled; the widget loads lazily when the reader scrolls near it
+- The widget theme follows the blog's day/night toggle. Production builds use custom themes with the blog colors; `hugo server` falls back to giscus' built-in `light`/`dark`, because giscus cannot fetch CSS from `localhost`
+
+| File | Purpose |
+|---|---|
+| `layouts/_partials/comments.html` | giscus widget (override of the theme's empty partial) |
+| `static/giscus/light.css`, `static/giscus/dark.css` | Custom widget themes (blog colors + Literata) |
+| `hugo.toml` → `[params.giscus]` | Repository, category and their IDs (from giscus.app). The widget is hidden while an ID is empty |
+
 ## Local preview
 
 ```bash
@@ -93,5 +109,5 @@ hugo server -D
 - **B1** — Hugo + PaperMod, EN/PT-BR, GitHub Pages via Actions: **done**
 - **B2** — Day/night colors and self-hosted Literata font: **done**
 - **B3** — Languages, menus, PT-BR interface and localized URLs: **done**
-- **B4** — giscus comments: next
+- **B4** — giscus comments (shared EN/PT thread, day/night themes): **done**
 - B5 — Buttondown · B6 — Pages CMS · B7 — link from the portfolio menu · B8 — final review
