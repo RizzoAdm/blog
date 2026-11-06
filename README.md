@@ -35,6 +35,35 @@ Personal blog of Mr. Rizzo — technical notes (homelab, local AI, git, ServiceN
 | `layouts/_partials/extend_head.html` | `@font-face` for Literata and font preload |
 | `static/fonts/literata/` | Literata `.woff2` files (Latin subset, weights 200–900, normal and italic) |
 
+## Languages
+
+English is the default language (no prefix); Brazilian Portuguese lives under `/pt-br/` with localized URLs.
+
+| Page | English | Português |
+|---|---|---|
+| Home | `/blog/` | `/blog/pt-br/` |
+| Posts | `/blog/posts/<folder>/` | `/blog/pt-br/artigos/<slug>/` |
+| Tags | `/blog/tags/` | `/blog/pt-br/etiquetas/` |
+| Archive | `/blog/archives/` | `/blog/pt-br/arquivo/` |
+| Search | `/blog/search/` | `/blog/pt-br/busca/` |
+
+- Only `tags` are used as taxonomy (no categories)
+- The language switcher in the header opens the translation of the current page, or the other language's home when there is none (`layouts/_partials/header.html`, override of the theme partial)
+- Interface strings: `i18n/pt-br.yaml` (full PT-BR set — the theme's `pt.yaml` is not used for `pt-br`) and `i18n/en.yaml` (small English overrides)
+- Home text, description and menu are set per language in `hugo.toml`
+
+### Bilingual posts
+
+Put both versions in the same folder; Hugo links them as translations:
+
+```
+content/posts/my-post/
+├── index.md         # English
+└── index.pt-br.md   # Portuguese — add slug: "titulo-em-portugues"
+```
+
+A post can exist in one language only. If the two files ever live in different folders, give both the same `translationKey`.
+
 ## Local preview
 
 ```bash
@@ -63,5 +92,6 @@ hugo server -D
 
 - **B1** — Hugo + PaperMod, EN/PT-BR, GitHub Pages via Actions: **done**
 - **B2** — Day/night colors and self-hosted Literata font: **done**
-- **B3** — Languages and menus: next
-- B4 — giscus · B5 — Buttondown · B6 — Pages CMS · B7 — link from the portfolio menu · B8 — final review
+- **B3** — Languages, menus, PT-BR interface and localized URLs: **done**
+- **B4** — giscus comments: next
+- B5 — Buttondown · B6 — Pages CMS · B7 — link from the portfolio menu · B8 — final review
