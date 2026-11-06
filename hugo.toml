@@ -1,3 +1,108 @@
-baseURL = 'https://example.org/'
-locale = 'en-us'
-title = 'My New Hugo Project'
+baseURL = 'https://rizzoadm.github.io/blog/'
+title = 'Mr. Rizzo · Blog'
+theme = 'PaperMod'
+
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = true
+
+[pagination]
+  pagerSize = 10
+
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
+
+[languages]
+  [languages.en]
+    label = 'English'
+    locale = 'en-US'
+    weight = 1
+    title = 'Mr. Rizzo · Blog'
+    [languages.en.params]
+      description = 'Notes on homelab, local AI, git, ServiceNow and everyday things.'
+    [[languages.en.menus.main]]
+      name = 'Posts'
+      pageRef = '/posts'
+      weight = 10
+    [[languages.en.menus.main]]
+      name = 'Tags'
+      pageRef = '/tags'
+      weight = 20
+    [[languages.en.menus.main]]
+      name = 'Archive'
+      pageRef = '/archives'
+      weight = 30
+    [[languages.en.menus.main]]
+      name = 'Search'
+      pageRef = '/search'
+      weight = 40
+    [[languages.en.menus.main]]
+      name = 'Portfolio'
+      url = 'https://rizzoadm.github.io/'
+      weight = 50
+
+  [languages.pt-br]
+    label = 'Português'
+    locale = 'pt-BR'
+    weight = 2
+    title = 'Mr. Rizzo · Blog'
+    [languages.pt-br.params]
+      description = 'Notas sobre homelab, IA local, git, ServiceNow e coisas do dia a dia.'
+    [[languages.pt-br.menus.main]]
+      name = 'Posts'
+      pageRef = '/posts'
+      weight = 10
+    [[languages.pt-br.menus.main]]
+      name = 'Tags'
+      pageRef = '/tags'
+      weight = 20
+    [[languages.pt-br.menus.main]]
+      name = 'Arquivo'
+      pageRef = '/archives'
+      weight = 30
+    [[languages.pt-br.menus.main]]
+      name = 'Busca'
+      pageRef = '/search'
+      weight = 40
+    [[languages.pt-br.menus.main]]
+      name = 'Portfólio'
+      url = 'https://rizzoadm.github.io/'
+      weight = 50
+
+[params]
+  env = 'production'
+  author = 'Mr. Rizzo'
+  defaultTheme = 'auto'
+  disableThemeToggle = false
+  ShowReadingTime = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowToc = false
+  ShowShareButtons = false
+  displayFullLangName = true
+  comments = false
+
+  [params.homeInfoParams]
+    Title = 'Mr. Rizzo · Blog'
+    Content = 'Notes on homelab, local AI, git and ServiceNow.'
+
+  [[params.socialIcons]]
+    name = 'github'
+    url = 'https://github.com/RizzoAdm'
+  [[params.socialIcons]]
+    name = 'linkedin'
+    url = 'https://www.linkedin.com/in/rizzo-admin/'
+  [[params.socialIcons]]
+    name = 'rss'
+    url = 'index.xml'
+
+  [params.fuseOpts]
+    isCaseSensitive = false
+    shouldSort = true
+    threshold = 0.4
+    minMatchCharLength = 2
+    keys = ['title', 'summary', 'content']
+
+[markup.highlight]
+  noClasses = false
