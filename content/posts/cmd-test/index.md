@@ -1,6 +1,6 @@
 ---
 title: CMS test
-translationKey: cmd-test
+translationKey: cms-test
 date: 2026-11-06
 draft: true
 summary: teste
