@@ -5,7 +5,8 @@ translationKey: welcome
 date: 2026-11-06
 draft: false
 tags:
-  - "about, "
+  - blog
+  - about
 summary: Quem sou eu, por que este blog existe, sobre o que vou escrever e como
   acompanhar.
 comments: true
@@ -14,7 +15,7 @@ Olá! Meu nome é Guilherme Rizzo e, em 2026, decidi resolver algumas pendência
 
 ## Por que um blog
 
-Este blog surgiu como uma extensão do meu [site pessoal]([https://rizzoadm.github.io/](https://rizzoadm.github.io/)), que uso como complemento do meu resume profissional. Lá ficam a experiência, as habilidades e os projetos, em um tom mais formal.
+Este blog surgiu como uma extensão do meu [site pessoal](https://rizzoadm.github.io/), que uso como complemento do meu resume profissional. Lá ficam a experiência, as habilidades e os projetos, em um tom mais formal.
 
 Aqui a proposta é diferente: quero colocar conteúdo mais simples, com testes, falhas, acertos e aprendizados, e compartilhar minha experiência sem tanto formalismo. Nem tudo vai dar certo de primeira, e a ideia é justamente registrar o caminho, não só o resultado.
 
@@ -40,8 +41,8 @@ RSS é uma forma de "assinar" um site sem precisar de e-mail nem de cadastro aqu
 
 1. Escolha um leitor de RSS. Alguns gratuitos: **Feedly** e **Inoreader** (navegador e celular), **NetNewsWire** (Mac e iPhone) e **Thunderbird** (computador).
 2. Copie o endereço do blog:
-  - em português: `https://rizzoadm.github.io/blog/pt-br/index.xml`
-  - em inglês: `https://rizzoadm.github.io/blog/index.xml`
+   - em português: `https://rizzoadm.github.io/blog/pt-br/index.xml`
+   - em inglês: `https://rizzoadm.github.io/blog/index.xml`
 3. No leitor, procure a opção de adicionar um site ou feed (geralmente "Add feed", "Follow" ou um botão "+") e cole o endereço.
 
 Pronto: sempre que sair um post novo, ele aparece no seu leitor.
