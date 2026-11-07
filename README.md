@@ -93,6 +93,8 @@ Posts can be written and edited at https://app.pagescms.org (sign in with GitHub
 - Every save is a commit to `main`, which triggers the deploy workflow. Run `git pull` before editing locally
 - Images uploaded through the editor go to `static/images/` and are linked as `/blog/images/<file>`. Strip EXIF/GPS metadata before uploading
 - Unknown front-matter keys are kept on save (`settings.content.merge: true`); key and folder cannot be renamed from the editor
+- **Pasting Markdown into the visual editor:** links get wrapped twice (`[text]([url](url))`) and the build fails (`urls.Parse … first path segment in URL cannot contain colon`). Paste Markdown only in the Markdown source mode, or create links with the editor's link button
+- **Tags:** one tag per item; a comma does not split tags (`about, ` becomes a single tag)
 - Step-by-step guide in Portuguese: [`MANUAL-CMS.md`](MANUAL-CMS.md)
 
 ## New post from the terminal
@@ -152,6 +154,10 @@ hugo server -D
 - **B6** — Pages CMS browser editor (separate EN/PT lists, shared folder per post): **done**
 - **B7** — "Blog" link in the portfolio menu (same tab): **done**
 - **B8** — Final review (Portuguese menu links fixed), `bilingual` archetype, writing routine, README: **done**
+
+## Posts
+
+- `welcome` — *Welcome to the blog* / *Bem-vindo ao blog* (Nov 2026). The `hello-world` test post was removed
 
 ## Notes
 

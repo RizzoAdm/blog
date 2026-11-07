@@ -129,6 +129,8 @@ Se você só escreve pelo CMS, não precisa fazer nada no computador.
 | Não consigo salvar | Campo obrigatório vazio ou com formato inválido | Leia a mensagem em vermelho embaixo do campo |
 | `git pull` dá conflito no computador | Arquivo editado no CMS e no VS Code ao mesmo tempo | Não edite o mesmo post nos dois lugares; peça ajuda para resolver o conflito |
 | As listas sumiram do menu do CMS | `.pages.yml` com erro | Desfaça a última mudança no `.pages.yml` |
+| Deploy falha com `first path segment in URL cannot contain colon` | Markdown com link colado no **modo visual**: o editor duplica o link (`[texto]([url](url))`) | Cole Markdown só no modo Markdown (botão de troca do editor) ou crie o link pelo botão de link; corrija o link e salve de novo |
+| Aparece uma etiqueta estranha, como `about, ` | Várias etiquetas digitadas no mesmo item, separadas por vírgula | Uma etiqueta por item (use o botão de adicionar outro item) |
 
 ## 12. Rotina de posts
 
