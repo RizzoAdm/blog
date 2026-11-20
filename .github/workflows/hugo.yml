@@ -5,6 +5,10 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
+  # Rebuild daily so posts with a future date go live on their own.
+  # 15:10 UTC = 08:10 in Calgary (MST); GitHub may run it a bit later.
+  schedule:
+    - cron: "10 15 * * *"
 
 permissions:
   contents: read
