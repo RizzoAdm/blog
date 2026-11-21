@@ -34,7 +34,7 @@ O primeiro passo foi saber exatamente o que eu tenho e onde.
 
 - **Um catálogo por conteúdo.** Mais de 1,4 milhão de arquivos, de todos os discos e do Google Drive, cada um registrado num banco SQLite com caminho, tamanho, data de modificação e MD5. Zero erros de hash. Se dois arquivos são duplicados, quem decide é o hash, nunca o nome.
 - **Importar só o que é único.** O catálogo gera a lista do que copiar (uma cópia de cada conteúdo, sem arquivos auxiliares), o rsync copia, e cada arquivo é conferido de novo pelo MD5 no destino. Resultado: 13.886 de 13.886 batendo.
-- **Google Fotos.** A API do Google Fotos não deixa mais ferramentas de terceiros acessarem a biblioteca do usuário. Então o caminho foi usar exportações agendadas do Google Takeout, entregues no Drive, baixadas com verificação e catalogadas: 358 GiB, 179.195 arquivos.
+- **Google Fotos.** A API do Google Fotos não deixa mais ferramentas de terceiros acessarem a minha biblioteca. Então o caminho foi usar exportações agendadas do Google Takeout, entregues no Drive, baixadas com verificação e catalogadas: 358 GiB, 179.195 arquivos.
 - Antes de apagar uma exportação antiga, comparei com a nova por hash. **6,9 GiB existiam só na antiga** e foram resgatados primeiro.
 
 E o que ele não faz: o sistema nunca apaga nada sozinho. Toda remoção passa por um relatório, pela minha revisão e por uma quarentena com data.

@@ -33,7 +33,7 @@ The first step was knowing exactly what I have and where.
 
 - **A content-based catalog.** More than 1.4 million files, from every drive and from Google Drive, each recorded in a SQLite database with path, size, modification date and MD5. Zero hashing errors. Whether two files are duplicates is decided by the hash, never by the name.
 - **Import only what is unique.** The catalog builds the copy list (one copy of each content, no auxiliary files), rsync copies it, and every file is checked again by MD5 at the destination. Result: 13,886 of 13,886 matched.
-- **Google Photos.** The Google Photos API no longer lets third-party tools access a user's library. So I use scheduled Google Takeout exports delivered to Drive, downloaded with checksum verification and cataloged: 358 GiB, 179,195 files.
+- **Google Photos.** The Google Photos API no longer lets third-party tools access my library. So I use scheduled Google Takeout exports delivered to Drive, downloaded with checksum verification and cataloged: 358 GiB, 179,195 files.
 - Before deleting an old export, I compared it with the new one by hash. **6.9 GiB existed only in the old one** and were rescued first.
 
 And what it doesn't do: the system never deletes anything on its own. Every removal goes through a report, my review and a dated quarantine.

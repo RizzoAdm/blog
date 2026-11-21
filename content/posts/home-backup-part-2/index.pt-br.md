@@ -44,8 +44,8 @@ Achar duplicado é fácil. O problema de verdade é decidir **qual cópia fica**
 
 1. **Pastas antes de arquivos.** Uma pasta só sai se cada arquivo dela tiver uma cópia idêntica fora dela, num lugar que vai continuar existindo. Pastas "despejo" (backups de celular, pastas de "refazer") saem primeiro; a árvore organizada sai por último. Uma regra de nível impede trocar uma pasta organizada por uma cópia que está no meio da bagunça. Resultado: 331,4 GiB numa única árvore antiga de backups.
 2. **Arquivo por arquivo só onde a pasta não decide.** Dentro das pastas despejo, um arquivo só sai se o mesmo conteúdo ficar numa pasta mais organizada, com o hash recalculado nos dois lados antes de mover: 16,4 GiB.
-3. **Respeitar como as pessoas organizam.** Numa exportação do Google Fotos, as cópias dos álbuns ficam e as das pastas por ano saem: 30.610 arquivos, 75,2 GiB.
-4. **Projeto 3D precisa de um gêmeo, não de cópias espalhadas.** Uma pasta de projeto só sai se uma outra pasta tiver todos os arquivos dela. Saíram 84 gêmeos exatos e 26 gêmeos de conteúdo (23,3 GiB); 6 projetos cujos arquivos só existem espalhados ficaram. Uma primeira versão sem prioridades teria apagado 10,1 GiB da minha biblioteca de assets organizada para manter a cópia bagunçada. A revisão pegou, e a regra mudou.
+3. **Respeitar como eu organizei.** Numa exportação do Google Fotos, as cópias dos álbuns ficam e as das pastas por ano saem: 30.610 arquivos, 75,2 GiB.
+4. **Projeto 3D precisa de um gêmeo, não de cópias espalhadas.** Uma pasta de projeto só sai se uma outra pasta tiver todos os arquivos dela. Saíram 84 gêmeos exatos e 26 gêmeos de conteúdo (23,3 GiB); 6 projetos cujos arquivos só existem espalhados ficaram. Uma primeira versão sem prioridades teria apagado 10,1 GiB da minha biblioteca de assets organizada para manter a cópia bagunçada. Eu peguei isso na revisão e mudei a regra.
 5. **Abrir os compactados antes de apagar.** 530 arquivos ZIP, 7z e RAR tiveram o hash calculado arquivo por arquivo lá dentro. 89 (8,7 GiB) saíram porque tudo o que tinham já estava na biblioteca de assets. 35 cujo conteúdo só existe dentro de projetos de clientes ficaram, para entrar na biblioteca depois. Os que não abriram também ficaram.
 
 Cada passo: **dry-run → minha revisão → quarentena → conferência no disco → apagar**. No final, **456,6 GiB de duplicados removidos**, e uma nova varredura encontrou 736.051 arquivos, exatamente o número esperado, com 0 erros.
@@ -64,7 +64,7 @@ Com o disco limpo, faltava organizar: transformar o conteúdo de cinco discos im
 
 1. **Renomear, não copiar.** Cada movimentação é um plano aprovado por mim: origem → destino. O dry-run classifica cada arquivo como mover, duplicado ou conflito, e a execução é recusada se sobrar um único conflito. Como é tudo no mesmo disco, os arquivos são movidos com `os.rename`: instantâneo, com as datas preservadas. O caminho no catálogo é atualizado no mesmo passo, e uma linha é escrita num diário antes de cada operação. Uma varredura completa depois não precisou recalcular nenhum hash e bateu exatamente com o esperado: 724.732 arquivos, 0 erros.
 2. **Deixar os discos votarem.** Juntar as árvores de cinco discos gerou 4.687 grupos com o mesmo nome, tamanho e data, mas MD5 diferente. Onde os discos saudáveis tinham uma cópia, eles decidiram: 1.437 grupos eram edições reais (todas as versões ficaram). Corrupção silenciosa só apareceu no disco com defeito; essas cópias saíram e as boas ficaram.
-3. **Nome engana.** Numa exportação do Google Fotos, IMG_1234 se repete entre câmeras e anos. Parear os arquivos auxiliares das fotos (*sidecars*) só pelo nome apagou 659 deles, de 8 álbuns. Nenhuma foto foi perdida, e a falha apareceu na revisão. Agora o pareamento exige o mesmo horário de captura, ao segundo, ou o mesmo MD5. Os 659 vão ser reconstruídos a partir de uma nova exportação, pelo MD5, e não adivinhados pelo nome.
+3. **Nome engana.** Numa exportação do Google Fotos, IMG_1234 se repete entre câmeras e anos. Parear os arquivos auxiliares das fotos (*sidecars*) só pelo nome apagou 659 deles, de 8 álbuns. Nenhuma foto foi perdida, e eu vi a falha na revisão. Agora o pareamento exige o mesmo horário de captura, ao segundo, ou o mesmo MD5. Os 659 vão ser reconstruídos a partir de uma nova exportação, pelo MD5, e não adivinhados pelo nome.
 4. **Compactados só saem quando o conteúdo existe extraído.** Cada arquivo de dentro com hash calculado e encontrado pelo MD5 numa pasta de assets ou de estudo. Cópias dentro de projetos de clientes não contam. 25 compactados (7 GiB) saíram e 10 ficaram.
 
 Uma lição: **não confiar em script que move arquivos sem atualizar o catálogo.** Um dos primeiros lotes fez isso. Uma ferramenta de reparo reconciliou tudo, e desde então toda movimentação é registrada pela própria ferramenta ou reconciliada antes do passo seguinte.
@@ -72,7 +72,7 @@ Uma lição: **não confiar em script que move arquivos sem atualizar o catálog
 ## O que isso não faz
 
 - **Não decide onde as coisas ficam.** A estrutura de pastas e as regras de conflito são decisões minhas, escritas antes da execução.
-- **Não apaga em um passo só.** Tudo passa por relatório, revisão e quarentena.
+- **Não apaga em um passo só.** Tudo passa por relatório, minha revisão e quarentena.
 - **Não "conserta" o que não consegue provar.** Quando não dá para provar, o arquivo fica e a decisão é minha.
 
 Na [parte 3](/blog/pt-br/artigos/backup-parte-3-primeiro-backup-restic/), finalmente o backup: a primeira cópia completa com restic.

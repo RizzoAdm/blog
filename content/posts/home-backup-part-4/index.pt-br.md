@@ -38,7 +38,7 @@ A regra agora é simples: **cada pasta mora inteira num lugar só, o acervo.** A
 2. **Descobrir onde cada pasta da nuvem mora no acervo.** Para cada arquivo do espelho com cópia no acervo, o caminho mais parecido gera uma regra, do tipo "pasta X da nuvem → Acervo/Trabalho/3D/X". A regra só vale se tiver pelo menos 3 arquivos e explicar pelo menos metade dos arquivos daquela pasta. Comparar pelo caminho, e não só pelo conteúdo, é o que revela o esqueleto: a pasta existe dos dois lados, mas quase não tem arquivos em comum.
 3. **Conteúdo não é endereço.** Na primeira tentativa, pastas de viagem foram pareadas com a exportação do Google Fotos, e material de curso com a biblioteca de assets 3D, porque essas áreas têm os mesmos arquivos. Agora elas contam como cópia, nunca como "casa" de uma pasta.
 4. **Eu escolho a casa, e a pasta vai inteira.** Doze pastas da nuvem ganharam uma casa no acervo, incluindo áreas novas para documentos. Cada projeto é copiado com a própria estrutura, em vez de ser espalhado.
-5. **Duas cópias da mesma pasta da empresa viram uma.** A minha pasta e uma pasta compartilhada tinham basicamente o mesmo conteúdo reorganizado: 737 caminhos idênticos, cerca de 2.800 arquivos em caminhos diferentes e 1.408 só na compartilhada. A compartilhada foi juntada na minha: 2.315 arquivos (21 GiB) pulados porque já estavam lá, os exclusivos entraram no mesmo caminho relativo, e 4 conflitos de nome ficaram para revisão.
+5. **Duas cópias da mesma pasta da empresa viram uma.** A minha pasta e uma pasta compartilhada tinham basicamente o mesmo conteúdo reorganizado: 737 caminhos idênticos, cerca de 2.800 arquivos em caminhos diferentes e 1.408 só na compartilhada. A compartilhada foi juntada na minha: 2.315 arquivos (21 GiB) pulados porque já estavam lá, os exclusivos entraram no mesmo caminho relativo, e 4 conflitos de nome ficaram para eu revisar.
 6. **Arquivos nativos do Google.** O sync já exporta Docs, Sheets e Slides para docx, xlsx e pptx. Os 88 arquivos nativos foram conferidos com as cópias exportadas; os 4 que não podem ser exportados (formulários e um mapa) ficaram marcados para exportação manual.
 7. **Copiar com prova.** O plano: 28.341 arquivos (690 GiB). A ferramenta de cópia confere cada linha com o catálogo e o disco, escreve no diário antes de copiar, copia para um arquivo temporário calculando o hash, relê do disco e calcula o hash de novo, mantém a data original e só dá o nome final se o nome estiver livre. Nunca sobrescreve e pode ser rodada de novo sem problema.
 
@@ -97,7 +97,7 @@ Então mudei a pergunta: em vez de *qual deve ficar?*, *faz diferença qual fica
 
 E isso fez diferença. Em dois pares as datas eram diferentes, e o plano era manter o mais novo. O dry-run discordou: as versões de 2010 tinham ficado e as de 2020 tinham ido para a lixeira. Coluna de data numa lista da web é um instrumento fraco. Nada se perdeu: a regra da pasta de separados encontrou as cópias no acervo, conferiu os dois lados e resolveu.
 
-**A lição:** quando alguém precisa fazer uma escolha que não consegue conferir, primeiro faça a escolha não importar.
+**A lição:** quando eu preciso fazer uma escolha que não consigo conferir, primeiro faço a escolha não importar.
 
 ### 326 GiB, pasta por pasta
 
@@ -144,3 +144,5 @@ Erros no sync: 0. Arquivos apagados sem cópia conferida no acervo: 1 arquivo va
 Garante que nada pessoal sai da nuvem se não houver uma cópia idêntica no disco do acervo, lida e comparada no dia da exclusão.
 
 Não garante que o disco do acervo sobreviva. Isso é trabalho do backup, e é por isso que o próximo passo é uma segunda cópia em outro disco. Também não escolhe entre versões: quando duas versões de um arquivo são diferentes, as duas ficam no acervo, e eu decido depois.
+
+Na [parte 5](/blog/pt-br/artigos/backup-parte-5-escopo-e-disco-frio/), um buraco no backup que eu mesmo criei com a lista de pastas, e um disco frio que se confere sozinho.

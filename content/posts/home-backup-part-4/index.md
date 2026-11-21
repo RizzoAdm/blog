@@ -37,7 +37,7 @@ The rule now is simple: **every folder lives whole in one place, the archive.** 
 2. **Find where each cloud folder lives in the archive.** For every mirror file with a copy in the archive, the most similar path produces a rule such as "cloud folder X → Archive/Work/3D/X". A rule only counts if it is backed by at least 3 files and explains at least half of the files in that folder. Comparing by path, not only by content, is what exposes a skeleton: the folder exists on both sides but shares almost no files.
 3. **Content is not an address.** On the first pass, travel folders were paired with the Google Photos export, and course material with the 3D asset library, because those areas contain the same files. Now they count as copies, never as the "home" of a folder.
 4. **I choose the home, and the folder goes there whole.** Twelve cloud folders got a home in the archive, including new areas for documents. Each project is copied with its own structure instead of being scattered.
-5. **Two copies of the same business folder become one.** My folder and a shared one held mostly the same content, reorganized: 737 identical paths, about 2,800 files at different paths and 1,408 only in the shared one. The shared folder was merged into mine: 2,315 files (21 GiB) skipped because they were already there, the unique ones went in at the same relative path, and 4 same-name conflicts were held for review.
+5. **Two copies of the same business folder become one.** My folder and a shared one held mostly the same content, reorganized: 737 identical paths, about 2,800 files at different paths and 1,408 only in the shared one. The shared folder was merged into mine: 2,315 files (21 GiB) skipped because they were already there, the unique ones went in at the same relative path, and 4 same-name conflicts were held for me to review.
 6. **Native Google files.** The sync already exports Docs, Sheets and Slides to docx, xlsx and pptx. All 88 native files were matched to their exported copies; the 4 that can't be exported (forms and a map) were flagged for manual export.
 7. **Copy with proof.** The plan: 28,341 files (690 GiB). The copy tool checks every line against the catalog and the disk, writes to the journal before copying, copies to a temporary file while hashing it, reads it back from disk and hashes it again, keeps the original date and only gives it its final name if the name is still free. It never overwrites and is safe to re-run.
 
@@ -96,7 +96,7 @@ So I changed the question: instead of *which one should stay?*, *does it matter 
 
 And that mattered. In two pairs the dates were different, and the plan was to keep the newer one. The dry-run disagreed: the 2010 versions had stayed and the 2020 ones had gone to the trash. A date column in a web list is a weak instrument. Nothing was lost: the set-aside rule found the copies in the archive, checked both sides and took care of it.
 
-**The lesson:** when someone has to make a choice they can't verify, first make the choice not matter.
+**The lesson:** when I have to make a choice I can't verify, I first make the choice not matter.
 
 ### 326 GiB, folder by folder
 
@@ -143,3 +143,5 @@ Sync errors: 0. Files deleted without a verified copy in the archive: 1 empty fi
 It guarantees that nothing personal leaves the cloud unless an identical copy is on the archive disk, read and compared on the day of the deletion.
 
 It doesn't guarantee that the archive disk survives. That's the backup's job, and the reason the next step is a second copy on another disk. It also doesn't choose between versions: when two versions of a file differ, both stay in the archive, and I decide later.
+
+In [part 5](/blog/posts/home-backup-part-5/), a hole in the backup I created myself with the folder list, and a cold disk that checks itself.
