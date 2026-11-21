@@ -1,7 +1,7 @@
 ---
 title: "Backup em casa, parte 3: o primeiro backup com restic (de 19 para 93 MB/s, e a armadilha do prune)"
 slug: "backup-parte-3-primeiro-backup-restic"
-date: 2026-11-24T08:00:00-07:00
+date: 2026-11-26T08:00:00-07:00
 draft: false
 translationKey: "home-backup-part-3"
 tags:

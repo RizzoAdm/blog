@@ -1,6 +1,6 @@
 ---
 title: "Home backup, part 3: the first restic backup (from 19 to 93 MB/s, and the prune trap)"
-date: 2026-11-24T08:00:00-07:00
+date: 2026-11-26T08:00:00-07:00
 draft: false
 translationKey: "home-backup-part-3"
 tags:
