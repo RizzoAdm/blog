@@ -1,6 +1,6 @@
 ---
 title: "Home backup, part 4: cleaning up Google Drive and taking 326 GiB out of the cloud"
-date: 2026-11-30T08:00:00-07:00
+date: 2026-11-25T08:00:00-07:00
 draft: false
 translationKey: "home-backup-part-4"
 tags:
