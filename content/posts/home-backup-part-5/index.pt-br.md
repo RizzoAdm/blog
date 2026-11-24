@@ -62,3 +62,5 @@ Não faz:
 ## Próximo passo
 
 O HD interno de 1 TB vai receber a segunda cópia do núcleo (documentos, finanças e fotos) num repositório restic próprio.
+
+Antes disso, apareceu uma limpeza que não estava no plano: está na [parte 6](/blog/pt-br/artigos/backup-parte-6-quase-duplicatas/).

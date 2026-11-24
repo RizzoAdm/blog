@@ -61,3 +61,5 @@ It does not:
 ## Next step
 
 The internal 1 TB drive will get the second copy of the core set (documents, finance and photos) in its own restic repository.
+
+Before that, a clean-up that was not in the plan came up: it is in [part 6](/blog/posts/home-backup-part-6/).
