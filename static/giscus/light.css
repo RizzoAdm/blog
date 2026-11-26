@@ -1,17 +1,17 @@
 /* =========================================================
    giscus — tema DIA do blog Mr. Rizzo (etapa B4)
    Parte do tema "light" do giscus e troca só as cores
-   (creme + azul-tinta #1f3a68) e a fonte (Literata).
+   (creme + azul-tinta #1f3a68) e a fonte (Inter).
    Publicado em https://rizzoadm.github.io/blog/giscus/light.css
    ========================================================= */
 @import url("https://giscus.app/themes/light.css");
 
 @font-face {
-  font-family: 'Literata';
+  font-family: 'Inter';
   font-style: normal;
-  font-weight: 200 900;
+  font-weight: 100 900;
   font-display: swap;
-  src: url('https://rizzoadm.github.io/blog/fonts/literata/literata-latin-wght-normal.woff2') format('woff2');
+  src: url('https://rizzoadm.github.io/blog/fonts/inter/inter-latin-wght-normal.woff2') format('woff2');
 }
 
 main {
@@ -56,5 +56,5 @@ main {
   --color-social-reaction-bg-hover: #f1ede4;
   --color-social-reaction-bg-reacted-hover: rgba(31, 58, 104, 0.15);
 
-  font-family: 'Literata', Georgia, 'Times New Roman', serif;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
 }

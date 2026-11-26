@@ -19,10 +19,12 @@ Personal blog of Mr. Rizzo — technical notes (homelab, local AI, git, ServiceN
 | | Background | Cards | Borders | Accent |
 |---|---|---|---|---|
 | Day | `#fbf9f4` | `#ffffff` | `#e2ddd3` | ink blue `#1f3a68` |
-| Night | `#121312` | `#1e201e` | `#30332f` | soft cyan `#7cc4c0` |
+| Night | `#121312` | `#1e201e` | `#30332f` | Claude orange `#d97757` |
 
-- Body and titles in [Literata](https://fonts.google.com/specimen/Literata) (variable serif), self-hosted in `static/fonts/literata/` — no requests to Google Fonts
-- Code and tags in the system monospace font
+- Three variable fonts, all under the SIL Open Font License, self-hosted in `static/fonts/` (Latin subset, files from Fontsource) — no requests to Google Fonts:
+  - [Newsreader](https://fonts.google.com/specimen/Newsreader) (serif) — titles, post text and home intro
+  - [Inter](https://fonts.google.com/specimen/Inter) (sans-serif) — interface, menu, post summaries, comments widget
+  - [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) — dates, post metadata, tags and code
 - Reading column ~700 px; code blocks stay dark in both modes (syntax colors are designed for a dark background)
 - Day/night follows the visitor's system setting, with a toggle in the header
 
@@ -31,8 +33,8 @@ Personal blog of Mr. Rizzo — technical notes (homelab, local AI, git, ServiceN
 | File | Purpose |
 |---|---|
 | `assets/css/extended/blog.css` | Color variables, typography, cards, tags, links. PaperMod loads it after the theme CSS, so it overrides without editing the theme |
-| `layouts/_partials/extend_head.html` | `@font-face` for Literata and font preload |
-| `static/fonts/literata/` | Literata `.woff2` files (Latin subset, weights 200–900, normal and italic) |
+| `layouts/_partials/extend_head.html` | `@font-face` for the three fonts and preload of Newsreader and Inter |
+| `static/fonts/newsreader/`, `static/fonts/inter/`, `static/fonts/jetbrains-mono/` | `.woff2` files (Latin subset; Newsreader normal and italic) |
 
 ## Languages
 
@@ -76,7 +78,7 @@ Comments use [giscus](https://giscus.app/): each post is linked to a GitHub Disc
 | File | Purpose |
 |---|---|
 | `layouts/_partials/comments.html` | giscus widget (override of the theme's empty partial) |
-| `static/giscus/light.css`, `static/giscus/dark.css` | Custom widget themes (blog colors + Literata) |
+| `static/giscus/light.css`, `static/giscus/dark.css` | Custom widget themes (blog colors + Inter) |
 | `hugo.toml` → `[params.giscus]` | Repository, category and their IDs (from giscus.app). The widget is hidden while an ID is empty |
 
 ## Browser editor (Pages CMS)

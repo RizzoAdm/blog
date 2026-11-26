@@ -1,5 +1,6 @@
 /* =========================================================
-   Blog Mr. Rizzo — etapa B2: visual de leitura
+   Blog Mr. Rizzo — visual de leitura
+   (B2; fontes e destaque noturno revistos em nov/2026)
    PaperMod junta este arquivo DEPOIS do CSS do tema,
    então as regras aqui substituem as do tema.
    ========================================================= */
@@ -19,8 +20,10 @@
     --code-bg: #f1ede4;        /* `código inline` */
     --code-block-bg: #1e201e;  /* blocos de código (tema de cores escuro) */
 
-    --font-serif: 'Literata', Georgia, 'Times New Roman', serif;
-    --font-mono: ui-monospace, 'Ubuntu Mono', SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+    /* Mesmas famílias do akitaonrails.com (licença SIL OFL), hospedadas no repo */
+    --font-serif: 'Newsreader', Charter, Georgia, 'Times New Roman', serif;   /* títulos e posts */
+    --font-sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;                /* interface e resumos */
+    --font-mono: 'JetBrains Mono', ui-monospace, 'Ubuntu Mono', SFMono-Regular, Menlo, Consolas, monospace; /* datas, tags, código */
 
     --main-width: 700px;       /* coluna de leitura (~70 caracteres) */
 }
@@ -31,7 +34,7 @@
     --entry: #1e201e;
     --border: #30332f;
     --tertiary: #30332f;
-    --accent: #7cc4c0;         /* ciano suave */
+    --accent: #d97757;         /* laranja Claude */
 
     --primary: #e8e6df;
     --content: #d2d0c8;
@@ -47,32 +50,63 @@
     background: var(--theme);
 }
 
-/* ---------- Tipografia ---------- */
+/* ---------- Tipografia ----------
+   Inter na interface (menu, resumos, rodapé),
+   Newsreader nos títulos e no texto dos posts,
+   JetBrains Mono em datas, tags e código. */
 body {
-    font-family: var(--font-serif);
-    font-size: 19px;
-    line-height: 1.7;
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
     color: var(--content);
+}
+
+h1, h2, h3, h4, h5, h6,
+.logo a,
+.post-title,
+.entry-header h2,
+.home-info .entry-content,
+.post-content {
+    font-family: var(--font-serif);
     font-optical-sizing: auto;
 }
 
 h1, h2, h3, h4, h5, h6,
 .post-title,
 .entry-header h2 {
-    font-family: var(--font-serif);
-    font-weight: 650;
-    letter-spacing: -0.01em;
+    font-weight: 600;
+    letter-spacing: -0.012em;
 }
 
-.post-content {
+.logo a {
+    font-weight: 600;
+}
+
+/* Texto dos posts e apresentação da página inicial */
+.post-content,
+.home-info .entry-content {
+    font-size: 19px;
+    line-height: 1.7;
     color: var(--content);
 }
 
-/* Mono: código, tags e termos */
+/* Mono: código, tags, datas e metadados */
 code, pre, kbd, samp,
 .post-tags a,
-.terms-tags a {
+.terms-tags a,
+.post-meta,
+.entry-footer,
+.archive-meta,
+.archive-year-header,
+.archive-month-header {
     font-family: var(--font-mono);
+}
+
+.post-meta,
+.entry-footer,
+.archive-meta {
+    font-size: 13px;
+    letter-spacing: 0;
 }
 
 .post-content code {
@@ -84,7 +118,7 @@ code, pre, kbd, samp,
     font-size: 14px;
 }
 
-/* ---------- Destaque (azul-tinta / ciano) ---------- */
+/* ---------- Destaque (azul-tinta de dia / laranja Claude à noite) ---------- */
 .md-content a:not(.anchor) {
     color: var(--accent);
     text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
@@ -128,8 +162,10 @@ code, pre, kbd, samp,
     border-color: var(--accent);
 }
 
-.entry-content {
-    font-size: 16px;
+.post-entry .entry-content {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.6;
     color: var(--secondary);
 }
 
@@ -179,7 +215,8 @@ code, pre, kbd, samp,
 
 /* ---------- Celular ---------- */
 @media screen and (max-width: 768px) {
-    body {
+    .post-content,
+    .home-info .entry-content {
         font-size: 18px;
     }
 }
